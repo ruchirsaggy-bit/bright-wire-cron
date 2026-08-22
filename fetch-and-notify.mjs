@@ -5,6 +5,15 @@
 // during the 7am hour. This makes daylight saving handle itself — no manual
 // UTC-offset math, no missed or double-fired mornings in spring/fall.
 
+import { Agent, setGlobalDispatcher } from "node:undici";
+
+// Node's default fetch times out waiting for response headers after 5
+// minutes. A search-heavy request (multiple web_search rounds before
+// Claude produces the final answer) can occasionally run longer than
+// that, so raise the ceiling rather than fail a run over a slow-but-
+// otherwise-healthy response.
+setGlobalDispatcher(new Agent({ headersTimeout: 600_000, bodyTimeout: 600_000 }));
+
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const NTFY_TOPIC = process.env.NTFY_TOPIC; // e.g. "ruchir-bright-wire-8f2k" — pick anything unguessable
 const TIMEZONE = process.env.BRIGHT_WIRE_TIMEZONE || "America/Toronto";
@@ -157,7 +166,13 @@ async function main() {
   }
 
   console.log(`Local hour matches target (${TARGET_HOUR}:00 ${TIMEZONE}). Fetching today's edition...`);
-  const stories = await fetchTodaysStories();
+  let stories;
+  try {
+    stories = await fetchTodaysStories();
+  } catch (err) {
+    console.warn(`First attempt failed (${err.message}); retrying once...`);
+    stories = await fetchTodaysStories();
+  }
   const lead = stories[0];
 
   const fs = await import("node:fs/promises");
