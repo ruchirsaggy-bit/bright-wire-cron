@@ -1,89 +1,89 @@
 {
   "date": "2026-08-22",
-  "fetchedAt": "2026-08-22T16:14:02.291Z",
+  "fetchedAt": "2026-08-22T17:07:49.065Z",
   "stories": [
     {
+      "category": "WILDFIRE SAFETY",
+      "headline": "AI-equipped FireSat satellites now scanning Earth for fires as small as a beach bonfire",
+      "dek": "Three new operational FireSat satellites launched in July 2026 are already spotting early-stage blazes invisible to existing systems.",
+      "paragraphs": [
+        "A SpaceX rocket carried three new FireSat satellites into orbit in July 2026, expanding a purpose-built constellation designed to give firefighters the earliest possible warning when a wildfire ignites. The satellites use infrared sensors paired with AI that compares each new image against thousands of prior observations of the same location, factoring in local weather before sending an alert — aiming to cut false alarms while catching real fires fast. The system is designed to detect fires as small as five-by-five metres and scan every point on Earth roughly every 20 minutes once the full constellation is deployed.",
+        "The urgency is real: a wildfire burning near Spokane, Washington, in August 2026 underscored how rapidly a small spark can become a community emergency. Earth Fire Alliance and Muon Space, who built the satellites with technical support from Google Research, estimate that a mature FireSat network could protect thousands of homes and reduce burned land by hundreds of thousands of hectares annually — though the system still needs to prove reliable performance under real fire-season conditions."
+      ],
+      "whyItMatters": "Earlier wildfire detection could dramatically reduce property destruction and loss of life, and the July 2026 satellite launches move FireSat from a research project to an operational tool for fire agencies worldwide.",
+      "source": {
+        "name": "Google Research Blog",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/firesat-satellites/"
+      }
+    },
+    {
       "category": "MEDICINE",
-      "headline": "Mayo Clinic AI spots pancreatic cancer up to 3 years before diagnosis",
-      "dek": "A validated model called REDMOD found cancer signatures on routine CT scans that human radiologists had cleared as normal.",
+      "headline": "AI-designed lung-disease drug shows improved lung function in Phase 2 trial, published in Nature Medicine",
+      "dek": "Rentosertib, discovered entirely by generative AI, is the first AI-originated drug to demonstrate clinical proof-of-concept in a randomised controlled trial.",
       "paragraphs": [
-        "Researchers at Mayo Clinic published findings in the journal Gut showing that their AI model, REDMOD, can detect signs of pancreatic cancer on routine abdominal CT scans up to three years before a clinical diagnosis is made. The system identified roughly 73 percent of pre-diagnostic cancers at a median of about 16 months ahead of diagnosis, nearly doubling the detection rate achieved by specialist radiologists reviewing the same scans without AI assistance.",
-        "The study validated REDMOD across nearly 2,000 CT scans from multiple institutions, including scans originally read as normal by radiologists. Because pancreatic cancer is rarely caught before it has spread — a point at which five-year survival falls below 3 percent — earlier detection could make curative surgery a realistic option for far more patients. Mayo Clinic is now enrolling patients in a follow-up clinical trial called AI-PACED to test the tool in real-world care settings."
+        "Insilico Medicine's rentosertib — a small-molecule inhibitor whose target and molecular structure were both identified by the company's generative AI platform — met safety and efficacy endpoints in a 71-patient, placebo-controlled Phase 2a trial for idiopathic pulmonary fibrosis (IPF), a progressive scarring lung disease with a median survival of only three to four years. Patients given the drug showed measurable improvements in forced vital capacity, a standard measure of lung function, while the placebo group declined. The results were published in Nature Medicine and represent the first time a drug designed entirely by AI, targeting an AI-discovered disease target, has demonstrated clinical proof-of-concept.",
+        "The company reports its AI platform compressed the time from project start to clinical candidate nomination to around 13 months, compared with an industry average of two-and-a-half to four years. A parallel Phase 2a trial is ongoing in the United States. Researchers caution that larger and longer trials are needed before rentosertib can be considered for regulatory approval, but the results mark a concrete milestone for AI-driven drug discovery."
       ],
-      "whyItMatters": "Pancreatic cancer is projected to become the second-leading cause of cancer death in the U.S. by 2030, and catching it earlier is the clearest path to improving survival — though the model still requires clinical-trial validation before routine use.",
+      "whyItMatters": "Idiopathic pulmonary fibrosis affects roughly five million people worldwide with no currently approved therapy that can reverse its course, making a promising AI-designed treatment candidate a meaningful step forward for patients.",
       "source": {
-        "name": "Mayo Clinic News Network",
-        "url": "https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-ai-detects-pancreatic-cancer-up-to-3-years-before-diagnosis-in-landmark-validation-study/"
+        "name": "Nature Medicine",
+        "url": "https://www.nature.com/articles/s41591-025-03743-2"
       }
     },
     {
-      "category": "DISASTER SAFETY",
-      "headline": "AI-powered FireSat satellites launched to catch wildfires while still bonfire-size",
-      "dek": "Three new satellites now in orbit use infrared sensors and AI to scan every point on Earth for heat signatures roughly every 20 minutes.",
+      "category": "OCEAN SCIENCE",
+      "headline": "NOAA and University of South Florida AI scans 1.2 million satellite images to map a global algae boom",
+      "dek": "The first comprehensive, quantified picture of floating algae across all of Earth's oceans was produced by a deep-learning model trained on two decades of satellite data.",
       "paragraphs": [
-        "A SpaceX rocket carried the first three operational FireSat satellites into orbit in July 2026, expanding a constellation developed by the nonprofit Earth Fire Alliance in partnership with Muon Space and Google Research. The satellites are designed to detect fires as small as a 5-by-5-meter area and deliver updated imagery every 20 minutes or less, a dramatic improvement over existing satellites that typically update a few times per day and miss small blazes entirely.",
-        "The AI onboard compares each new infrared image against thousands of prior observations of the same location, factoring in local weather and nearby heat sources before sending an alert to emergency responders — a step designed to catch real fires while reducing false alarms. Analysts estimate that a mature FireSat network could save more than $1 billion a year in U.S. fire-damage costs and protect roughly 3,500 homes annually, though the satellites still need to prove themselves under active fire conditions."
+        "Scientists at NOAA's Center for Satellite Applications and Research, working with the University of South Florida, used a deep-learning model to analyse 1.2 million satellite images spanning 20 years and 13 ocean zones, producing the first complete global map of floating algae. The AI was trained to detect algae signatures that typically occupy less than one percent of each image pixel — a task effectively impossible with manual review. The results, published in Nature Communications, show that blooms of both Sargassum and green Ulva seaweed have been expanding dramatically since around 2008, with researchers describing what may be a regime shift from a macroalgae-poor ocean to a macroalgae-rich one.",
+        "The expansion appears driven by a combination of ocean warming, changing currents, and nutrient runoff from land, though the dominant cause varies by region. Coastal economies, tourism, marine ecosystems, and public health are all at risk from the growing mats of decaying seaweed. Researchers say the AI baseline will now let them monitor future changes and investigate the drivers of expansion in individual ocean zones."
       ],
-      "whyItMatters": "As wildfires burn year-round and detection timing is often the difference between containment and catastrophe, a system that finds fires within minutes of ignition could meaningfully reduce lives lost and land burned — if real-world performance matches early test results.",
-      "source": {
-        "name": "Artiverse / Climate Central",
-        "url": "https://www.artiverse.ca/how-ai-satellites-and-cameras-are-changing-wildfire-detection/"
-      }
-    },
-    {
-      "category": "ENVIRONMENT",
-      "headline": "AI maps global algae boom using 1.2 million satellite images — the first complete picture",
-      "dek": "NOAA and University of South Florida researchers used AI to produce the first-ever comprehensive global count of floating algal blooms.",
-      "paragraphs": [
-        "Scientists from NOAA and the University of South Florida trained an AI model to scan 1.2 million satellite images taken between 2003 and 2022, generating the first complete quantified picture of floating algae across the world's oceans. The analysis, published in Nature Communications in August 2026, found that floating macroalgae in some regions has been expanding at about 13.4 percent per year, with cumulative microalgal scum now covering more than 43 million square kilometers.",
-        "The study found that the regime shift appears to have begun around 2008, driven by a combination of warming ocean temperatures, changing currents, and nutrient runoff from human activity. By revealing exactly where and how fast blooms are growing, the dataset gives coastal managers, fisheries officials, and public health agencies a new tool to anticipate foul-smelling seaweed landings, beach closures, and damage to marine habitats — threats that had been impossible to track at this scale before AI made the image analysis feasible."
-      ],
-      "whyItMatters": "Understanding the geographic pattern and pace of algal expansion is a prerequisite for protecting coastal economies and ecosystems; this is the first time scientists have had a global baseline to work from.",
+      "whyItMatters": "Understanding the pace and geography of algae expansion is essential for protecting coastal communities and marine ecosystems, and this AI-enabled global picture was simply not achievable with previous satellite tools.",
       "source": {
         "name": "ScienceDaily / University of South Florida",
         "url": "https://www.sciencedaily.com/releases/2026/08/260801042834.htm"
       }
     },
     {
-      "category": "CANCER SCREENING",
-      "headline": "AI mammography boosts UK breast cancer detection by 10% in large NHS trial",
-      "dek": "A multicenter study across NHS sites found that adding AI to the screening workflow caught more cancers with fewer unnecessary recalls.",
+      "category": "NEUROSCIENCE",
+      "headline": "Physics-informed AI reveals two distinct speeds in the brain's waste-clearing system, a first for Alzheimer's research",
+      "dek": "A team from University of Rochester, Brown University, and University of Copenhagen used neural networks to map cerebrospinal fluid flow velocities that standard MRI cannot directly measure.",
       "paragraphs": [
-        "Results from the GEMINI study, published in Nature Cancer and covering retrospective data from nearly 116,000 mammograms across five NHS screening services, found that integrating Google's mammography AI increased the breast cancer detection rate from 7.54 to 9.33 per 1,000 women screened. The AI also flagged 25 percent of interval cancers — tumors that are typically missed between screening rounds — and showed especially strong performance on first-time screenings, where it produced 39 percent fewer unnecessary recalls alongside an 8.8 percent increase in cancers detected.",
-        "A simulated scenario in the study suggested that using AI as a second reader could cut radiologist reading time by about 32 percent while still increasing detection by nearly 18 percent, pointing toward a path for easing the shortage of breast imaging specialists. Researchers note that real-world deployment requires ongoing calibration and monitoring to ensure performance holds across diverse patient populations."
+        "Researchers developed a physics-informed neural network that was trained on MRI videos of dye spreading through brain tissue to infer fluid velocity and tissue permeability without any invasive procedures. The AI revealed that the brain's glymphatic system — the cleaning network that flushes out metabolic waste, including amyloid-beta proteins linked to Alzheimer's disease, during deep sleep — operates at two very different speeds: a fast flow of a few microns per second in open regions near the brain's surface, and a flow roughly 50 times slower through deep brain tissue. The findings were published in Science Advances.",
+        "The technique, called MR-AIV, gives researchers a first baseline measurement of normal fluid flow in animal brains and a roadmap for eventually producing comparable measurements in humans. Scientists hope that once the tool is adapted for clinical use, it could help identify whether disrupted glymphatic flow is detectable in patients with early-stage neurodegenerative disease — potentially opening a new diagnostic window years before symptoms appear."
       ],
-      "whyItMatters": "Detecting breast cancer earlier and at higher rates translates directly into more treatment options and better survival odds; reducing unnecessary recalls also spares women anxiety and healthcare systems cost, though results from one national setting may not generalize everywhere.",
+      "whyItMatters": "A non-invasive way to measure how efficiently the brain clears toxic waste could eventually become a diagnostic tool for Alzheimer's and other neurodegenerative conditions, where earlier detection is critical to slowing disease progression.",
       "source": {
-        "name": "ASCO Post / Nature Cancer",
-        "url": "https://ascopost.com/topics/issues-in-oncology/ai-in-oncology/"
+        "name": "ScienceDaily",
+        "url": "https://www.sciencedaily.com/releases/2026/08/260811011130.htm"
       }
     },
     {
       "category": "ACCESSIBILITY",
-      "headline": "New report documents how people with disabilities use AI tools in daily life right now",
-      "dek": "Disability Belongs and the Consumer Technology Association released real-world case studies showing AI in action across transport, home, healthcare, and work.",
+      "headline": "New CTA and Disability Belongs report documents how people with disabilities use AI in daily life right now",
+      "dek": "Published in early August 2026, the community-grounded research centres lived experience across transport, healthcare, employment, and household management.",
       "paragraphs": [
-        "Published on August 4, 2026, the joint report from Disability Belongs and the Consumer Technology Association moved beyond speculation to document how people with disabilities are currently using AI tools across four domains of daily life: transportation, household management, healthcare, and employment. The research was designed to surface lived experience rather than industry projections, centering the voices of disabled community members themselves.",
-        "Separately, a University of Phoenix and Harris Poll survey published the same week found that 60 percent of employed adults said AI is improving their ability to understand and use accessibility features in the workplace. AI-powered tools highlighted across both reports include real-time captioning for deaf and hard-of-hearing users, on-demand scene description for blind users via apps like Microsoft Seeing AI and Be My Eyes, and augmentative communication tools that help people with speech disabilities express themselves."
+        "Disability Belongs partnered with the Consumer Technology Association to publish a report on AI and accessibility that draws on first-hand accounts from people with disabilities rather than expert projections. The research maps how AI tools are actively being adopted — and adapted — across four areas of daily life: transportation, household management, healthcare, and employment. By prioritising community voices, the report aims to move policy and product discussions away from abstract potential and toward concrete outcomes that disabled people are already experiencing.",
+        "The report arrives as the EU AI Act's full provisions took effect in August 2026 — the world's first comprehensive AI legal framework requiring transparency, human oversight, and bias mitigation for high-risk systems, including those used in healthcare and employment. Disability advocacy organisations in the US are simultaneously pushing Congress to include explicit disability protections in any federal AI framework, including mandatory bias audits and accessibility requirements for AI-generated content."
       ],
-      "whyItMatters": "Moving from aspirational claims to documented real-world outcomes matters because it shows where AI is delivering genuine independence gains — and where gaps still need to be closed — for the more than one billion people globally who live with a disability.",
+      "whyItMatters": "Grounding AI accessibility policy and product development in documented lived experience rather than speculation is essential for ensuring that over one billion people globally with disabilities actually benefit from these tools.",
       "source": {
-        "name": "Disability Belongs™",
+        "name": "Disability Belongs",
         "url": "https://www.disabilitybelongs.org/2026/08/ai-and-accessibility/"
       }
     },
     {
       "category": "EDUCATION",
-      "headline": "AI tutors guided through reasoning produce double the learning gains of classroom instruction",
-      "dek": "A Harvard-led physics study and supporting meta-analyses confirm that well-designed AI tutors significantly outperform conventional teaching — with an important caveat.",
+      "headline": "OECD 2026 digital education report finds purpose-built AI tutoring tools produce sustained learning gains",
+      "dek": "The landmark report distinguishes between general AI chatbots, which can create dependency, and pedagogically designed AI tools, which show durable improvements in student outcomes.",
       "paragraphs": [
-        "A randomized controlled trial from Harvard involving roughly 500 college students found that those using a GPT-based AI tutor designed around learning science principles learned more than twice as fast as peers in active-learning classroom sessions. The result, one of the most cited education findings of 2026, adds to a growing body of meta-analyses showing that AI tutoring systems that walk students through reasoning steps — rather than just providing answers — produce substantial, sustained learning improvements.",
-        "Researchers are careful to note that the gains depend heavily on how the AI is used. A separate 2026 study found that when students used AI simply to generate completed work rather than to reason through problems, knowledge retention actually declined. The consensus emerging from the research literature is that AI tutoring narrows educational inequity by giving students who cannot afford private tutors access to on-demand, personalized guidance, but only when the tool is designed to keep the student doing the cognitive work."
+        "The OECD's 2026 report on digital education found that students using general-purpose AI chatbots produced higher-quality outputs than peers without access, but that advantage disappeared — and sometimes reversed — when access was removed during exams. By contrast, AI tools built with explicit pedagogical goals showed sustained improvements in student performance that persisted independently. The report concludes that learning to work with AI, and to know when not to, now ranks as a foundational skill alongside reading and mathematics.",
+        "The finding has immediate implications for how schools and policymakers evaluate and procure AI in classrooms. Filament Games, tracking August 2026 AI-and-learning research, also noted that OpenAI introduced specialised education plugins for distinct classroom roles — one drawing on learning science to build student study tools from course materials, another helping teachers build practice tests aligned to local standards. The clearer the pedagogical intention behind the AI tool, researchers argue, the more likely it is to genuinely extend rather than replace student thinking."
       ],
-      "whyItMatters": "If the classroom-to-AI learning-speed advantage holds at scale, it represents a potential step-change in educational access — though implementation quality and equitable distribution of the technology remain unresolved challenges.",
+      "whyItMatters": "With hundreds of millions of students now interacting with AI tools weekly, distinguishing designs that build lasting skills from those that create shallow dependency is one of the most consequential questions in modern education.",
       "source": {
-        "name": "AI Business Weekly / Education Research Roundup",
-        "url": "https://aibusinessweekly.net/p/ai-education-statistics"
+        "name": "Filament Games",
+        "url": "https://www.filamentgames.com/blog/the-latest-findings-in-ai-and-learning---august-2026"
       }
     }
   ]
