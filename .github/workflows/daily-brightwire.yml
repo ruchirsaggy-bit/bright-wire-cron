@@ -1,0 +1,48 @@
+name: Bright Wire daily edition
+
+on:
+  schedule:
+    # Every hour, on the hour, in UTC. The script itself checks whether it's
+    # currently 7am in America/Toronto and no-ops otherwise — this is what
+    # makes daylight saving handle itself automatically.
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force a run right now, ignoring the 7am check (for testing)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch today's stories and notify
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          BRIGHT_WIRE_TIMEZONE: "America/Toronto"
+          BRIGHT_WIRE_HOUR: "7"
+          BRIGHT_WIRE_FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
+        run: node fetch-and-notify.mjs
+
+      - name: Commit today's edition if one was written
+        run: |
+          git config user.name "bright-wire-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/ || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Bright Wire: today's edition"
+            git push
+          else
+            echo "No new edition to commit."
+          fi
