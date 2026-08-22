@@ -17,14 +17,14 @@ Use web search to find real stories from roughly the last 7 days about AI produc
 Return ONLY a raw JSON array (no markdown code fences, no commentary before or after) of exactly 6 objects, each shaped exactly like this:
 {
   "category": "SHORT UPPERCASE LABEL",
-  "headline": "Specific, concrete headline under 100 characters, written in your own words",
-  "dek": "One sentence of extra context, your own words",
-  "paragraphs": ["2-3 sentence paragraph in your own words, never copied verbatim from any source", "A second paragraph in your own words"],
+  "headline": "A simple, plain-English headline under 90 characters that YOU write fresh — never lifted or lightly reworded from the source's own headline. Someone with zero background in the topic should understand what happened from this line alone. Avoid jargon, acronyms, and proper nouns unless essential.",
+  "dek": "One plain sentence of extra context, your own words",
+  "paragraphs": ["First paragraph (2-3 sentences): the high-level gist in plain language, as if to a smart friend with no background in the field — what happened, in the simplest accurate terms, before any technical detail.", "Second paragraph (2-3 sentences): the supporting detail, numbers, or nuance a more curious reader would want — still your own words, never copied from any source."],
   "whyItMatters": "One sentence on why this matters, your own words, hedge appropriately if the claim is a single company's unverified announcement",
   "source": { "name": "Publication or outlet name", "url": "A real URL that actually appeared in your search results" }
 }
 
-Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, cover 6 different topics/categories, and output nothing but the JSON array.`;
+Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, cover 6 different topics/categories, write headlines that are your own simplified plain-English summary rather than a close rewrite of the source's headline, and output nothing but the JSON array.`;
 
 function currentLocalHour(timeZone) {
   const parts = new Intl.DateTimeFormat("en-US", {
