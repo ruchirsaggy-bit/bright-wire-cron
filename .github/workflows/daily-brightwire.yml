@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: 20
 
+      - run: npm install
+
       - name: Fetch today's stories and notify
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

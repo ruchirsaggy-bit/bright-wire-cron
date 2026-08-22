@@ -5,7 +5,7 @@
 // during the 7am hour. This makes daylight saving handle itself — no manual
 // UTC-offset math, no missed or double-fired mornings in spring/fall.
 
-import { Agent, setGlobalDispatcher } from "node:undici";
+import { Agent, setGlobalDispatcher } from "undici";
 
 // Node's default fetch times out waiting for response headers after 5
 // minutes. A search-heavy request (multiple web_search rounds before
