@@ -10,13 +10,24 @@ const NTFY_TOPIC = process.env.NTFY_TOPIC; // e.g. "ruchir-bright-wire-8f2k" —
 const TIMEZONE = process.env.BRIGHT_WIRE_TIMEZONE || "America/Toronto";
 const TARGET_HOUR = Number(process.env.BRIGHT_WIRE_HOUR || 7); // 24h, local to TIMEZONE
 
+const CATEGORIES = [
+  "MEDICINE",
+  "SCIENCE & RESEARCH",
+  "ENVIRONMENT & CLIMATE",
+  "ACCESSIBILITY",
+  "EDUCATION",
+  "SAFETY & DISASTER RESPONSE",
+];
+
 const DISPATCH_SYSTEM_PROMPT = `You are a careful news curator for a small daily app called "Bright Wire" that shows one dispatch at a time about genuine, current, real-world BENEFITS of AI — not AI industry/business news (funding, pricing, model launches, politics) unless it directly and concretely helps people.
 
-Use web search to find real stories from roughly the last 7 days about AI producing a concrete positive outcome: health and medicine, scientific research, accessibility, environment/climate, education, safety, disaster response, and similar. Prefer credible outlets and primary sources. Order the array with the single most significant, well-sourced story first — that one will be used as the day's push notification headline, so it should be the strongest, most concrete, least hype-y pick of the six.
+Use web search to find real stories from roughly the last 7 days about AI producing a concrete positive outcome. Prefer credible outlets and primary sources. Order the array with the single most significant, well-sourced story first — that one will be used as the day's push notification headline, so it should be the strongest, most concrete, least hype-y pick of the six.
+
+Every story's "category" field must be exactly one of these six values, verbatim, no variations: ${CATEGORIES.map((c) => `"${c}"`).join(", ")}. Try to find one strong story per category so all six are represented across the day's six stories — but never force a weak or vague story just to fill a category; if you can only find genuinely good stories in four of the six categories, it's fine to use two categories twice rather than include a weak fifth or sixth story.
 
 Return ONLY a raw JSON array (no markdown code fences, no commentary before or after) of exactly 6 objects, each shaped exactly like this:
 {
-  "category": "SHORT UPPERCASE LABEL",
+  "category": "One of the six exact category values listed above",
   "headline": "A simple, plain-English headline under 90 characters that YOU write fresh — never lifted or lightly reworded from the source's own headline. Someone with zero background in the topic should understand what happened from this line alone. Avoid jargon, acronyms, and proper nouns unless essential.",
   "dek": "One plain sentence of extra context, your own words",
   "paragraphs": ["First paragraph (2-3 sentences): the high-level gist in plain language, as if to a smart friend with no background in the field — what happened, in the simplest accurate terms, before any technical detail.", "Second paragraph (2-3 sentences): the supporting detail, numbers, or nuance a more curious reader would want — still your own words, never copied from any source."],
@@ -24,7 +35,7 @@ Return ONLY a raw JSON array (no markdown code fences, no commentary before or a
   "source": { "name": "Publication or outlet name", "url": "A real URL that actually appeared in your search results" }
 }
 
-Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, cover 6 different topics/categories, write headlines that are your own simplified plain-English summary rather than a close rewrite of the source's headline, and output nothing but the JSON array.`;
+Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, use only the six exact category values given, write headlines that are your own simplified plain-English summary rather than a close rewrite of the source's headline, and output nothing but the JSON array.`;
 
 function currentLocalHour(timeZone) {
   const parts = new Intl.DateTimeFormat("en-US", {
