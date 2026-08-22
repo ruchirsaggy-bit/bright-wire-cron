@@ -31,7 +31,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           BRIGHT_WIRE_TIMEZONE: "America/Toronto"
-          BRIGHT_WIRE_HOUR: "7"
+          BRIGHT_WIRE_HOUR: "6"
           BRIGHT_WIRE_FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
         run: node fetch-and-notify.mjs
 
