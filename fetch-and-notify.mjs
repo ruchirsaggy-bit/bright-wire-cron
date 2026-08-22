@@ -10,7 +10,7 @@ const NTFY_TOPIC = process.env.NTFY_TOPIC; // e.g. "ruchir-bright-wire-8f2k" —
 const TIMEZONE = process.env.BRIGHT_WIRE_TIMEZONE || "America/Toronto";
 const TARGET_HOUR = Number(process.env.BRIGHT_WIRE_HOUR || 7); // 24h, local to TIMEZONE
 
-const CATEGORIES = [
+const ALL_CATEGORIES = [
   "MEDICINE",
   "SCIENCE & RESEARCH",
   "ENVIRONMENT & CLIMATE",
@@ -19,15 +19,31 @@ const CATEGORIES = [
   "SAFETY & DISASTER RESPONSE",
 ];
 
+// Set by the app via the BRIGHT_WIRE_CATEGORIES repo variable when the
+// person picks categories in Bright Wire. Comma-separated, must match
+// ALL_CATEGORIES values exactly. Empty/unset = no restriction, all six.
+const rawSelection = (process.env.BRIGHT_WIRE_CATEGORIES || "")
+  .split(",")
+  .map((c) => c.trim())
+  .filter(Boolean);
+const ACTIVE_CATEGORIES =
+  rawSelection.length > 0 ? ALL_CATEGORIES.filter((c) => rawSelection.includes(c)) : ALL_CATEGORIES;
+const categoriesForPrompt = ACTIVE_CATEGORIES.length > 0 ? ACTIVE_CATEGORIES : ALL_CATEGORIES;
+
+const categoryInstruction =
+  categoriesForPrompt.length === ALL_CATEGORIES.length
+    ? `Every story's "category" field must be exactly one of these six values, verbatim, no variations: ${categoriesForPrompt.map((c) => `"${c}"`).join(", ")}. Try to find one strong story per category so all six are represented across the day's six stories — but never force a weak or vague story just to fill a category; if you can only find genuinely good stories in four of the six categories, it's fine to use two categories twice rather than include a weak fifth or sixth story.`
+    : `The person reading this has asked to see ONLY these categories: ${categoriesForPrompt.map((c) => `"${c}"`).join(", ")}. Every one of the 6 stories must have its "category" field set to one of exactly these values, verbatim — do not include any other category. Find 6 distinct, non-repetitive stories within this narrower set (different subtopics, angles, or institutions), rather than 6 near-duplicates of the same news item. If genuinely fewer than 6 strong, distinct stories exist in the last 7 days across these categories, it's fine to return fewer than 6 rather than pad with weak ones.`;
+
 const DISPATCH_SYSTEM_PROMPT = `You are a careful news curator for a small daily app called "Bright Wire" that shows one dispatch at a time about genuine, current, real-world BENEFITS of AI — not AI industry/business news (funding, pricing, model launches, politics) unless it directly and concretely helps people.
 
-Use web search to find real stories from roughly the last 7 days about AI producing a concrete positive outcome. Prefer credible outlets and primary sources. Order the array with the single most significant, well-sourced story first — that one will be used as the day's push notification headline, so it should be the strongest, most concrete, least hype-y pick of the six.
+Use web search to find real stories from roughly the last 7 days about AI producing a concrete positive outcome. Prefer credible outlets and primary sources. Order the array with the single most significant, well-sourced story first — that one will be used as the day's push notification headline, so it should be the strongest, most concrete, least hype-y pick.
 
-Every story's "category" field must be exactly one of these six values, verbatim, no variations: ${CATEGORIES.map((c) => `"${c}"`).join(", ")}. Try to find one strong story per category so all six are represented across the day's six stories — but never force a weak or vague story just to fill a category; if you can only find genuinely good stories in four of the six categories, it's fine to use two categories twice rather than include a weak fifth or sixth story.
+${categoryInstruction}
 
-Return ONLY a raw JSON array (no markdown code fences, no commentary before or after) of exactly 6 objects, each shaped exactly like this:
+Return ONLY a raw JSON array (no markdown code fences, no commentary before or after) of up to 6 objects, each shaped exactly like this:
 {
-  "category": "One of the six exact category values listed above",
+  "category": "One of the exact category values given above",
   "headline": "A simple, plain-English headline under 90 characters that YOU write fresh — never lifted or lightly reworded from the source's own headline. Someone with zero background in the topic should understand what happened from this line alone. Avoid jargon, acronyms, and proper nouns unless essential.",
   "dek": "One plain sentence of extra context, your own words",
   "paragraphs": ["First paragraph (2-3 sentences): the high-level gist in plain language, as if to a smart friend with no background in the field — what happened, in the simplest accurate terms, before any technical detail.", "Second paragraph (2-3 sentences): the supporting detail, numbers, or nuance a more curious reader would want — still your own words, never copied from any source."],
@@ -35,7 +51,7 @@ Return ONLY a raw JSON array (no markdown code fences, no commentary before or a
   "source": { "name": "Publication or outlet name", "url": "A real URL that actually appeared in your search results" }
 }
 
-Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, use only the six exact category values given, write headlines that are your own simplified plain-English summary rather than a close rewrite of the source's headline, and output nothing but the JSON array.`;
+Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, use only the exact category values given, write headlines that are your own simplified plain-English summary rather than a close rewrite of the source's headline, and output nothing but the JSON array.`;
 
 function currentLocalHour(timeZone) {
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -151,6 +167,20 @@ async function main() {
   await fs.writeFile(`data/${key}.json`, JSON.stringify(payload, null, 2));
   await fs.writeFile("data/latest.json", JSON.stringify(payload, null, 2));
   console.log(`Saved data/${key}.json and data/latest.json`);
+
+  // Rebuild the manifest of every date that has an edition, newest
+  // first, by reading the data/ directory itself rather than trusting
+  // the manifest's own past writes — this makes it self-healing and
+  // automatically backfills any dated files that existed before this
+  // indexing logic was added.
+  const files = await fs.readdir("data");
+  const dates = files
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .map((f) => f.replace(".json", ""))
+    .sort()
+    .reverse();
+  await fs.writeFile("data/index.json", JSON.stringify(dates, null, 2));
+  console.log(`Rebuilt data/index.json (${dates.length} editions on file)`);
 
   await sendNotification(lead);
   console.log("Done.");
