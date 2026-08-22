@@ -33,6 +33,7 @@ jobs:
           BRIGHT_WIRE_TIMEZONE: "America/Toronto"
           BRIGHT_WIRE_HOUR: "6"
           BRIGHT_WIRE_FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
+          BRIGHT_WIRE_CATEGORIES: ${{ vars.BRIGHT_WIRE_CATEGORIES }}
         run: node fetch-and-notify.mjs
 
       - name: Commit today's edition if one was written
