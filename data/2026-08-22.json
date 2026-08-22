@@ -1,89 +1,89 @@
 {
   "date": "2026-08-22",
-  "fetchedAt": "2026-08-22T17:55:07.284Z",
+  "fetchedAt": "2026-08-22T18:13:41.594Z",
   "stories": [
     {
-      "category": "SAFETY & DISASTER RESPONSE",
-      "headline": "New AI-powered satellites can now spot a wildfire the size of a bonfire from space",
-      "dek": "Three purpose-built FireSat satellites, now in orbit, scan every point on Earth roughly every 20 minutes using infrared sensors and AI.",
+      "category": "MEDICINE",
+      "headline": "A blood test analyzed by AI can predict how well your body will respond to a vaccine — before you get the shot",
+      "dek": "Arizona State University researchers found that pre-existing antibody patterns in the blood reveal how strongly someone's immune system will react to vaccination.",
       "paragraphs": [
-        "A new satellite network called FireSat, developed by the nonprofit Earth Fire Alliance with technical support from Google Research, launched its first three operational satellites in July 2026. The system is designed to detect fires as small as a beach bonfire and deliver alerts to emergency responders within minutes — far faster than existing satellites that update only a few times a day at low resolution.",
-        "The satellites use infrared sensors paired with AI that compares each new image against thousands of prior pictures of the same spot, while also factoring in local weather and nearby heat sources to filter out false alarms. Analysts estimate a mature FireSat network could save the United States more than a billion dollars a year in wildfire damage and prevent hundreds of thousands of hectares from burning annually, though the system still needs to prove itself under real fire conditions."
+        "A team led by Arizona State University studied blood samples from more than 4,000 people — both healthy and immunosuppressed — to understand why vaccines protect some people far better than others. Using AI to scan antibody responses to 185 different targets, they found that the immune system already carries detectable signals of how ready it is to respond, even before any vaccine is administered. Counterintuitively, some healthy individuals showed weak predicted responses while some immunosuppressed people showed strong ones.",
+        "The approach, published in Cell Press Blue, is one of the first to use a broad pre-vaccination antibody 'fingerprint' rather than genetic data to gauge immune readiness — making it potentially easier to adapt for everyday clinical use. Researchers say the findings could eventually guide more personalized vaccination strategies, especially for people at risk of a blunted immune response, and may extend beyond COVID-19 to other vaccines if validated in follow-up studies."
       ],
-      "whyItMatters": "Earlier detection is one of the most proven ways to stop a wildfire from becoming catastrophic, and this is the first system capable of scanning the entire planet at that resolution every 20 minutes.",
+      "whyItMatters": "If this approach holds up in larger trials, doctors could one day tailor vaccination plans to individual immune profiles rather than using the same schedule for everyone.",
       "source": {
-        "name": "Artiverse / Climate Central via PreventionWeb",
-        "url": "https://www.artiverse.ca/how-ai-satellites-and-cameras-are-changing-wildfire-detection/"
+        "name": "ASU News / EurekAlert",
+        "url": "https://news.asu.edu/20260820-science-and-technology-why-immune-responses-vaccines-vary-person-person"
+      }
+    },
+    {
+      "category": "SAFETY & DISASTER RESPONSE",
+      "headline": "A new network of AI-powered satellites can now spot a wildfire the size of a beach bonfire from space and alert crews within minutes",
+      "dek": "Three operational FireSat satellites launched in July 2026 are beginning to scan for early-stage wildfires across the US, Australia, and Portugal using Google-developed AI.",
+      "paragraphs": [
+        "A SpaceX rocket carried the first three operational FireSat satellites into orbit in July, beginning a new era of wildfire detection. Built by Muon Space for the nonprofit Earth Fire Alliance, the satellites use infrared sensors and AI developed by Google Research to scan for heat signatures as small as five by five meters — far smaller than anything existing satellites can reliably catch. Once the full constellation of more than 50 satellites is in place, every point on Earth will be checked roughly every 20 minutes.",
+        "The AI works by comparing each new satellite image against thousands of prior images of the same location, while factoring in local weather and nearby heat sources to filter out false alarms. A prototype satellite launched in 2025 already detected small, low-intensity blazes that existing systems missed entirely. The first three operational satellites are expected to begin issuing alerts in the US, Australia, and Portugal before the end of 2026, with the goal of reaching fires while they are still small enough to stop."
+      ],
+      "whyItMatters": "Earlier wildfire detection could be the difference between a controlled burn and a community disaster — and this system is designed to provide that warning anywhere on the planet.",
+      "source": {
+        "name": "PreventionWeb / Climate Central",
+        "url": "https://www.preventionweb.net/news/how-new-satellites-and-ai-are-transforming-wildfire-detection"
       }
     },
     {
       "category": "SCIENCE & RESEARCH",
-      "headline": "A team of AI agents just cut the time needed to discover new materials from years to days",
-      "dek": "Scientists at a U.S. national lab demonstrated a multi-agent AI system that runs complex materials simulations from start to finish without human hand-holding.",
+      "headline": "A team of AI agents at a US national lab can now design new battery and aerospace materials in days instead of months",
+      "dek": "Argonne National Laboratory demonstrated a multi-agent AI system that runs complex materials simulations end-to-end with minimal human involvement, dramatically cutting discovery timelines.",
       "paragraphs": [
-        "Researchers at Argonne National Laboratory, part of the U.S. Department of Energy, published results in August 2026 showing that a coordinated team of AI agents can fully automate so-called atomistic simulations — computer models that predict how atoms in a material interact. Previously, running these simulations required specialist expertise and months of painstaking manual work; the new system can potentially do the same job in days.",
-        "The framework uses an administrator AI agent that oversees the workflow and delegates tasks to a series of specialist agents, together running the full pipeline from setup through data analysis on supercomputers. The method is designed to be accessible to researchers who are not domain experts, which could significantly widen who can participate in discovering next-generation materials for batteries, electronics, and aerospace."
+        "Researchers at the US Department of Energy's Argonne National Laboratory built a system where multiple specialized AI agents collaborate to run atomistic simulations — the kind of detailed physics-based modeling used to predict how atoms in a new material will behave — from start to finish without requiring expert intervention at each step. An administrator AI orchestrates the workflow, handing off tasks to specialist agents, much like a virtual research team. The work was published in the Royal Society of Chemistry's Digital Discovery journal.",
+        "Previously, setting up and running these simulations required deep expertise and could take months or years per material candidate. The Argonne team says their framework could compress that to just days, and also opens the technique to researchers who are not simulation specialists. The approach is applicable to materials for batteries, electronics, and aerospace, where finding the right atomic structure is currently a major bottleneck."
       ],
-      "whyItMatters": "Speeding up materials discovery by orders of magnitude could accelerate the development of better batteries, lighter aerospace components, and more efficient electronics — technologies that underpin the clean energy transition.",
+      "whyItMatters": "Speeding up materials discovery from months to days could accelerate the development of better batteries, lightweight aerospace components, and countless other technologies that depend on finding new substances with just the right properties.",
       "source": {
         "name": "Argonne National Laboratory",
         "url": "https://www.anl.gov/article/scientists-deploy-ai-agents-to-accelerate-discovery-of-new-materials"
       }
     },
     {
-      "category": "MEDICINE",
-      "headline": "AI and MRI together mapped how the brain washes away waste — a potential window on Alzheimer's",
-      "dek": "Scientists used physics-informed AI to measure, for the first time, how fast cleansing fluid moves through different parts of the living brain.",
+      "category": "ENVIRONMENT & CLIMATE",
+      "headline": "AI scanned over a million satellite images and found that ocean algae blooms have been quietly exploding in size since 2008",
+      "dek": "A NOAA and University of South Florida study used AI to produce the first complete global map of floating algae, revealing a dramatic and previously undetected expansion.",
       "paragraphs": [
-        "The brain has a built-in waste-clearance system called the glymphatic network, which flushes out harmful proteins — including the ones linked to Alzheimer's disease — while we sleep. Until now, researchers had no reliable, non-invasive way to measure how fast that fluid actually moves. A new study combined standard MRI scans with AI tools to produce the first speed map of this system, revealing that fluid races along the brain's surface but moves about 50 times more slowly through deep tissue.",
-        "The work, highlighted by ScienceDaily in August 2026, was conducted at the University of Rochester. Because impaired waste clearance is increasingly thought to play a role in Alzheimer's and concussion, researchers say the technique could eventually become a clinical test for detecting clearance problems before symptoms appear — though human validation studies are still needed."
+        "Scientists at NOAA and the University of South Florida used AI to analyze 1.2 million satellite images spanning two decades, producing the first comprehensive global picture of floating algae in the world's oceans. The results, published in Nature Communications, revealed that macroalgae mats have been growing at roughly 13 percent per year in some regions, with microalgal scum now covering a cumulative area more than four times the size of the United States. Before this study, scientists could only examine blooms one region at a time.",
+        "The AI-enabled analysis identified a clear turning point around 2008 to 2011, when large-scale blooms of green Ulva seaweed in the Yellow Sea and brown Sargassum in the tropical Atlantic appeared for the first time outside their historical ranges. The expansion is driven by a mix of warming waters and nutrient runoff, with causes varying by region. Researchers say understanding where and why blooms are growing is the essential first step toward protecting coastal ecosystems, tourism, and public health from their effects."
       ],
-      "whyItMatters": "If this method can be adapted for routine clinical use, it could give doctors a non-invasive way to catch early signs of Alzheimer's-related brain dysfunction years before memory loss sets in.",
+      "whyItMatters": "Knowing exactly where ocean algae is spreading — and at what rate — gives scientists and policymakers the data they need to respond before the ecological and economic damage becomes irreversible.",
+      "source": {
+        "name": "ScienceDaily / University of South Florida",
+        "url": "https://www.sciencedaily.com/releases/2026/08/260801042834.htm"
+      }
+    },
+    {
+      "category": "MEDICINE",
+      "headline": "AI helped researchers map the brain's internal waste-removal system and found a fast lane and a slow lane — a clue to Alzheimer's",
+      "dek": "A University of Rochester team used physics-informed AI combined with MRI data to measure, for the first time, how quickly the brain flushes out harmful waste during sleep.",
+      "paragraphs": [
+        "The brain clears metabolic waste — including proteins linked to Alzheimer's disease — through a fluid-circulation network called the glymphatic system, which is most active during deep sleep. Measuring how fast that fluid actually moves inside a living brain has been nearly impossible without causing damage. Researchers at the University of Rochester solved this by combining MRI scans with physics-informed neural networks, an AI approach that can infer flow speeds from indirect imaging data.",
+        "The AI analysis revealed two distinct speeds: a relatively fast flow along the brain's outer surface and a flow through deep tissue that is roughly 50 times slower. The findings, reported by ScienceDaily in August 2026, help clarify why waste clearance can fail — and may eventually allow clinicians to detect glymphatic problems in living patients using standard MRI, without surgery. The team is working to establish baseline measurements and plans to compare healthy and diseased brains in future studies."
+      ],
+      "whyItMatters": "If this method can be translated to human patients, it could one day provide a non-invasive early warning sign for Alzheimer's and other neurodegenerative diseases linked to impaired brain waste clearance.",
       "source": {
         "name": "ScienceDaily",
         "url": "https://www.sciencedaily.com/releases/2026/08/260811011130.htm"
       }
     },
     {
-      "category": "ENVIRONMENT & CLIMATE",
-      "headline": "AI sifted 1.2 million ocean satellite images to reveal a global surge in algae blooms",
-      "dek": "The first-ever comprehensive global map of floating algae, made possible only through deep learning, shows blooms expanding at alarming rates since 2008.",
-      "paragraphs": [
-        "Scientists at the University of South Florida and NOAA used AI to analyze 1.2 million satellite images taken over two decades, producing what they describe as the first truly comprehensive global picture of floating algae in the world's oceans. The analysis, published in Nature Communications, found that large seaweed mats are growing at up to 13.4 percent per year in some regions, and that microalgal scum now covers a cumulative area of roughly 44 million square kilometers — more than four times the size of the United States.",
-        "The researchers linked the expansion to a combination of warming ocean temperatures, shifting currents, and nutrient pollution from human activity, though the specific drivers vary by region. The findings matter beyond ecology: large blooms can devastate fisheries, close beaches, harm tourism, and damage coastal economies, and this first global baseline gives policymakers and ocean managers a tool to track and respond to future changes."
-      ],
-      "whyItMatters": "Without this AI-enabled global baseline, scientists had no way to see the full scale of the algae surge — now they can monitor it, model its trajectory, and give coastal communities advance warning.",
-      "source": {
-        "name": "Intelligent Living / Nature Communications",
-        "url": "https://www.intelligentliving.co/ai-reveals-massive-ocean-algae-bloom/"
-      }
-    },
-    {
-      "category": "ACCESSIBILITY",
-      "headline": "A new report documents how people with disabilities are actually using AI in their daily lives right now",
-      "dek": "Disability Belongs partnered with the Consumer Technology Association to gather real community voices on AI in transport, home life, healthcare, and work.",
-      "paragraphs": [
-        "Published on August 4, 2026, a joint report from Disability Belongs and the Consumer Technology Association set out to document the lived experience of people with disabilities using AI tools today — not future projections, but what is happening right now. The report gathered case studies across four key areas of daily life: transportation, household management, healthcare, and employment.",
-        "By centering community voices rather than tech-industry claims, the project aims to shift the policy conversation from abstract principles about what AI could do for disabled people toward concrete, actionable evidence about what is and isn't working. The report is intended to inform both product design and disability rights advocacy going forward."
-      ],
-      "whyItMatters": "Real-world evidence from disabled people themselves — rather than vendor promises — is essential for holding developers and policymakers accountable for building AI that genuinely improves access and independence.",
-      "source": {
-        "name": "Disability Belongs",
-        "url": "https://www.disabilitybelongs.org/2026/08/ai-and-accessibility/"
-      }
-    },
-    {
       "category": "EDUCATION",
-      "headline": "The OECD says purposefully designed AI tutoring tools produce lasting learning gains — but generic chatbots don't",
-      "dek": "A landmark 2026 global education report draws a sharp line between AI tools built around learning science and those that simply hand students answers.",
+      "headline": "OpenAI launched classroom-specific AI tools that connect directly to teachers' course materials and learning standards",
+      "dek": "New education plugins for ChatGPT are designed for distinct classroom roles — one for students building study aids, one for teachers creating differentiated lesson plans — tied to content teachers have already chosen.",
       "paragraphs": [
-        "The OECD's major 2026 report on digital education found that students given access to general-purpose AI chatbots produced better work in the short term, but that advantage disappeared — and sometimes reversed — when AI was removed, suggesting the gains were superficial. By contrast, AI tools specifically designed with pedagogical purpose showed sustained improvements that persisted without the tool.",
-        "The report goes further, arguing that knowing how and when to work with AI is now a foundational skill that belongs alongside reading and mathematics in core education. The finding has significant implications for how schools evaluate and adopt AI products, pushing the field toward evidence-based selection rather than adoption driven by novelty or cost."
+        "OpenAI introduced a set of education-focused plugins in August 2026 that integrate directly with learning management systems and the course materials that teachers and students already use. A student-facing plugin uses learning science principles to generate study guides, flashcards, and visual explanations sourced from materials selected by the student. A separate plugin for K-12 educators helps teachers build differentiated resources and practice tests aligned to local academic standards.",
+        "The move comes as OpenAI reports that more than 200 million young adults use ChatGPT weekly, yet most use only a fraction of its capabilities. The new tools aim to channel that existing usage into more structured, educationally grounded interactions rather than open-ended prompting, addressing a criticism that general-purpose AI tools encourage passive consumption rather than active learning."
       ],
-      "whyItMatters": "This OECD finding gives educators and policymakers a concrete framework for distinguishing AI tools that build real skills from those that create dependency — a critical distinction as AI floods classrooms worldwide.",
+      "whyItMatters": "Designing AI tools specifically around how students learn — rather than repurposing general chatbots — is the approach that research consistently shows produces real, lasting improvements in learning outcomes.",
       "source": {
-        "name": "Engageli / OECD 2026 Digital Education Report",
-        "url": "https://www.engageli.com/blog/ai-in-education-statistics"
+        "name": "Filament Games",
+        "url": "https://www.filamentgames.com/blog/the-latest-findings-in-ai-and-learning---august-2026"
       }
     }
   ]
