@@ -60,7 +60,7 @@ Return ONLY a raw JSON array (no markdown code fences, no commentary before or a
   "source": { "name": "Publication or outlet name", "url": "A real URL that actually appeared in your search results" }
 }
 
-Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, use only the exact category values given, write headlines that are your own simplified plain-English summary rather than a close rewrite of the source's headline, and output nothing but the JSON array.`;
+Rules: paraphrase everything, never quote a source directly, use only URLs you actually found via search, use only the exact category values given, write headlines that are your own simplified plain-English summary rather than a close rewrite of the source's headline, never include HTML or XML-style tags of any kind (no <cite>, no citation markup) anywhere in your output — write plain prose only — and output nothing but the JSON array.`;
 
 function currentLocalHour(timeZone) {
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -76,6 +76,21 @@ function todayKey(timeZone) {
   return new Intl.DateTimeFormat("en-CA", { timeZone }).format(new Date()); // en-CA => YYYY-MM-DD
 }
 
+function stripMarkupTags(text) {
+  if (typeof text !== "string") return text;
+  return text.replace(/<\/?[a-zA-Z][^>]*>/g, "");
+}
+
+function sanitizeStories(stories) {
+  return stories.map((s) => ({
+    ...s,
+    headline: stripMarkupTags(s.headline),
+    dek: stripMarkupTags(s.dek),
+    paragraphs: Array.isArray(s.paragraphs) ? s.paragraphs.map(stripMarkupTags) : s.paragraphs,
+    whyItMatters: stripMarkupTags(s.whyItMatters),
+  }));
+}
+
 function extractJsonArray(text) {
   const cleaned = text
     .trim()
@@ -85,7 +100,7 @@ function extractJsonArray(text) {
   const start = cleaned.indexOf("[");
   const end = cleaned.lastIndexOf("]");
   if (start === -1 || end === -1) throw new Error("No JSON array found in model response");
-  return JSON.parse(cleaned.slice(start, end + 1));
+  return sanitizeStories(JSON.parse(cleaned.slice(start, end + 1)));
 }
 
 async function fetchTodaysStories() {
