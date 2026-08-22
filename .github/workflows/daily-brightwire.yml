@@ -39,6 +39,7 @@ jobs:
         run: |
           git config user.name "bright-wire-bot"
           git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin main
           git add data/ || true
           if ! git diff --cached --quiet; then
             git commit -m "Bright Wire: today's edition"
